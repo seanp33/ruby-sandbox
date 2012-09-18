@@ -31,12 +31,12 @@ class StorageTest < Test::Unit::TestCase
 
   def test_iter
     collection = @store.collection "test_iter"
-    collection.save({'fname' => 'Sean', 'lname' => 'Monaghan', 'age' => 35})
-    collection.save({'fname' => 'Cyndi', 'lname' => 'Monaghan', 'age' => 36})
-    collection.save({'fname' => 'Sylvia', 'lname' => 'Monaghan', 'age' => 5})
-    collection.save({'fname' => 'Forrest', 'lname' => 'Monaghan', 'age' => 2})
+    collection.save({'fname' => 'Blue', 'lname' => 'Berry', 'age' => 35})
+    collection.save({'fname' => 'Red', 'lname' => 'Berry', 'age' => 36})
+    collection.save({'fname' => 'Purple', 'lname' => 'Berry', 'age' => 5})
+    collection.save({'fname' => 'Orange', 'lname' => 'Berry', 'age' => 2})
 
-    collection.find({'lname' => 'Monaghan'}) { |cursor|
+    collection.find({'lname' => 'Berry'}) { |cursor|
       assert_equal(4, cursor.count)
       cursor.each { |record| p record }
     }
